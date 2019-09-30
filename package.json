@@ -1,0 +1,33 @@
+{
+  "name": "hsms",
+  "version": "1.0.0",
+  "description": "HTTP service monitoring system, NodeJs application",
+  "main": "application.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "nodemon application.js --build",
+    "dev": "nodemon application.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/merabchik/hsms.git"
+  },
+  "keywords": [
+    "HTTP",
+    "Restful",
+    "Service",
+    "WebService"
+  ],
+  "author": "MerabChik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/merabchik/hsms/issues"
+  },
+  "homepage": "https://github.com/merabchik/hsms#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql2": "^1.7.0",
+    "request": "^2.88.0",
+    "socket.io": "^2.3.0"
+  }
+}
