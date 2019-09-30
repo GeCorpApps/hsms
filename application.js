@@ -7,10 +7,10 @@ var app = express();
 let vEnv = 'development'
 
 const connection = mysql.createConnection({
-    host: 'itbridge.co',
-    user: 'itbridge_hsmsusr',
-    password: '?Jno=mII%=n5',
-    database: 'itbridge_hsms'
+    host: 'localhost',
+    user: 'root',
+    password: '****',
+    database: 'hsms'
 });
 
 
