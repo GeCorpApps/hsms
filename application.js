@@ -14,7 +14,7 @@ const connection = mysql.createConnection({
 });
 
 
-app.use(express.static(__dirname + '/SClientSide/Dashboard')); //Static Files
+app.use(express.static(__dirname + '/modules/Dashboard')); //Static Files
 var server = app.listen(8080, () => {
     console.log(`Server started on port 8080`);
 });
