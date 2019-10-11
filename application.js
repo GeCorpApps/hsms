@@ -3,6 +3,8 @@ var config = require('./config')
 var express = require('express');
 var socket = require('socket.io');
 const mysql = require('mysql2');
+const path = require('path');
+
 var app = express();
 let vEnv = 'development'
 
@@ -13,10 +15,15 @@ const connection = mysql.createConnection({
     database: config.env(vEnv).database.database
 });
 
+app.use(express.static(__dirname + "/assets"));
+app.set("view engine","ejs");
+app.set('views', path.join(__dirname, 'app/views'));
 
-app.use(express.static(__dirname + '/modules/Dashboard')); //Static Files
-var server = app.listen(8080, () => {
-    console.log(`Server started on port 8080`);
+
+//app.use(express.static(__dirname + '/modules/Dashboard')); //Static Files
+
+var server = app.listen(config.env(vEnv).port, () => {
+    console.log(`Server started on port http://` + config.env(vEnv).host + `:` + config.env(vEnv).port);
 });
 
 //Socket setup
@@ -25,8 +32,26 @@ io.on('connection', function (socket) {
     handleSocket(socket);
 });
 
+
+
+
+// Controllers
+const serversRoute = require('./app/controllers/serversController');
+
+app.get('/servers', serversRoute.getServersList);
+app.get('/servers/log', serversRoute.getServerLogs);
+
+
+
+
+
+
+
 app.get('/', function (req, res) {
-    connection.query('SELECT * FROM `servers` ORDER BY id Desc', function (err, results) {
+    var result;
+    result = {bots: [{uid: 101, device: 'HP-1'}]};
+    res.render('index', result);
+    /*connection.query('SELECT * FROM `servers` ORDER BY id Desc', function (err, results) {
         if (err) {
             console.error(err);
         } else {
@@ -34,7 +59,7 @@ app.get('/', function (req, res) {
             res.json(results);
         }
     }
-    );
+    );*/
 });
 
 

@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/merabchik/hsms#readme",
   "dependencies": {
+    "ejs": "^2.7.1",
     "express": "^4.17.1",
     "mysql2": "^1.7.0",
     "request": "^2.88.0",
