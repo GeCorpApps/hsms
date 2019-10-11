@@ -7,10 +7,10 @@ var app = express();
 let vEnv = 'development'
 
 const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '****',
-    database: 'hsms'
+    host: config.database.host,
+    user: config.database.username,
+    password: config.database.password,
+    database: config.database.database
 });
 
 
@@ -26,20 +26,20 @@ io.on('connection', function (socket) {
 });
 
 app.get('/', function (req, res) {
-    connection.query('SELECT * FROM `servers` ORDER BY id Desc', function(err, results) {
-            if(err){
-                console.error(err);
-            }else{
-                console.log(results);
-                res.json(results);
-            }
+    connection.query('SELECT * FROM `servers` ORDER BY id Desc', function (err, results) {
+        if (err) {
+            console.error(err);
+        } else {
+            console.log(results);
+            res.json(results);
         }
+    }
     );
 });
 
 
 
-io.emit('request', /* … */);
+io.emit('request');
 /*
 function handleWebClientCommand(socket) {
 
