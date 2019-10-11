@@ -7,10 +7,10 @@ var app = express();
 let vEnv = 'development'
 
 const connection = mysql.createConnection({
-    host: config.database.host,
-    user: config.database.username,
-    password: config.database.password,
-    database: config.database.database
+    host: config.env(vEnv).database.host,
+    user: config.env(vEnv).database.username,
+    password: config.env(vEnv).database.password,
+    database: config.env(vEnv).database.database
 });
 
 

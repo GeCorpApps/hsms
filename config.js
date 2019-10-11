@@ -1,4 +1,4 @@
-exports = (pEnv) => {
+exports.env = (pEnv) => {
         if(pEnv == 'development') {
             return {
                 host: '127.0.01',
