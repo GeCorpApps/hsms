@@ -36,10 +36,12 @@ io.on('connection', function (socket) {
 
 
 // Controllers
-const serversRoute = require('./app/controllers/serversController');
+const indexController = require('./app/controllers/indexController');
+const serversController = require('./app/controllers/serversController');
 
-app.get('/servers', serversRoute.getServersList);
-app.get('/servers/log', serversRoute.getServerLogs);
+app.get('/', indexController.main);
+app.get('/servers', serversController.getServersList);
+app.get('/servers/log', serversController.getServerLogs);
 
 
 
