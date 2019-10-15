@@ -1,5 +1,8 @@
 module.exports = {
     main(req, resp) {
-        resp.render('index');
+        var data = {
+            title: "index title"
+        };
+        resp.render('index', data);
     }
 };

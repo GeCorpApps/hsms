@@ -4,20 +4,31 @@ var express = require('express');
 var socket = require('socket.io');
 const mysql = require('mysql2');
 const path = require('path');
+const expressLayouts = require('express-ejs-layouts');
 
 var app = express();
 let vEnv = 'development'
 
+/*
+MongoDB
+user: root
+pass: CQnOyPoZUZjVR9o2
+*/
+/*
 const connection = mysql.createConnection({
     host: config.env(vEnv).database.host,
     user: config.env(vEnv).database.username,
     password: config.env(vEnv).database.password,
     database: config.env(vEnv).database.database
 });
+*/
+
 
 app.use(express.static(__dirname + "/assets"));
 app.set("view engine","ejs");
 app.set('views', path.join(__dirname, 'app/views'));
+//app.use(expressLayouts);
+//app.set('layout', 'layouts/layout');
 
 
 //app.use(express.static(__dirname + '/modules/Dashboard')); //Static Files
