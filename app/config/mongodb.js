@@ -1,20 +1,22 @@
-const MongoClient = require('mongodb').MongoClient;
+//const MongoClient = require('mongodb').MongoClient;
+const {MongoClient} = require('mongodb');
 const appConfig = require('./appConfig');
 
 module.exports = {
     _uri: null,
     _client: null,
     _db: "hsms",
-    client() {
-        const uri = appConfig.getMongoDbUri
-        this._client = new MongoClient(uri, { useNewUrlParser: true })
-        return this._client
-    },
-    connect() {
-        client.connect(err => {
-         client.db("test").collection("devices");
-        // perform actions on the collection object
-        client.close();
-        });
+    async getDB() {
+        const uri = appConfig.getMongoDbUri() //const dbURI = uriUtil.formatMongoose(process.env.MONGO_URI)
+        //const uri = "mongodb+srv://root:CQnOyPoZUZjVR9o2@adocluster-3gmiq.mongodb.net/test?retryWrites=true&w=majority"
+        const client = new MongoClient(uri.uri, { useNewUrlParser: true, useUnifiedTopology: true })
+        try{
+            await client.connect()
+            const db = client.db(this._db)
+            console.log(`Connected with MongoDb database: ${db.databaseName}`)
+            return db;            
+        }catch(err){
+            console.log(`Error: ${err}`)
+        }
     }
 }

@@ -2,10 +2,10 @@ module.exports = {
     env: "development", // production
     getMongoDbUri(){
         let development = {
-            uri: "********"
+            uri: "***********"
         };
         let production = {
-            uri: "********"
+            uri: "**********"
         };
         if(this.env == "development") {
             return development;

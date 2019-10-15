@@ -40,7 +40,29 @@
         <!-- Page wrapper  -->
         <!-- ============================================================== -->
         <div class="page-wrapper">
-                        
+                <div class="container">
+                    <%-pageContent%>
+                        <table class="table table-bordered">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Server</th>
+                                <th scope="col">Interval</th>
+                                <th scope="col">Handle</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                            <% for(var i=0; i< servers.length; i++) {%>
+                              <tr>
+                                <th scope="row">1</th>
+                                <td><%=servers[i].url%></td>
+                                <td><%=servers[i].interval%></td>
+                                <td><%=servers[i]._id%></td>
+                              </tr>
+                              <% } %>                              
+                            </tbody>
+                        </table>
+                </div>
             <%include partials/footer%>
         </div>
         <!-- ============================================================== -->
