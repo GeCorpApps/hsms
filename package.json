@@ -16,7 +16,10 @@
     "HTTP",
     "Restful",
     "Service",
-    "WebService"
+    "WebService",
+    "apps monitoring",
+    "api monitoring",
+    "web service monitoring"
   ],
   "author": "MerabChik",
   "license": "ISC",
@@ -25,6 +28,7 @@
   },
   "homepage": "https://github.com/merabchik/hsms#readme",
   "dependencies": {
+    "@amcharts/amcharts4-geodata": "^4.1.7",
     "ejs": "^2.7.1",
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.0",
