@@ -8,7 +8,6 @@ module.exports = {
     _db: "hsms",
     async getDB() {
         const uri = appConfig.getMongoDbUri() //const dbURI = uriUtil.formatMongoose(process.env.MONGO_URI)
-        //const uri = "mongodb+srv://root:CQnOyPoZUZjVR9o2@adocluster-3gmiq.mongodb.net/test?retryWrites=true&w=majority"
         const client = new MongoClient(uri.uri, { useNewUrlParser: true, useUnifiedTopology: true })
         try{
             await client.connect()

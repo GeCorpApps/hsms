@@ -22,7 +22,6 @@ module.exports = {
         </form>`
 
        var dbo = mongodb.getDB()
-       var vServers;
        dbo.then((db) => {
        db.collection("servers").find({}).toArray(function(err, items) {
                 if (err) throw err
