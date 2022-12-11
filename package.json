@@ -30,7 +30,7 @@
   "dependencies": {
     "@amcharts/amcharts4-geodata": "^4.1.7",
     "ejs": "^2.7.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-ejs-layouts": "^2.5.0",
     "mongodb": "^3.3.2",
     "mysql2": "^1.7.0",
